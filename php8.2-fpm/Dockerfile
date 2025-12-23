@@ -23,30 +23,23 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 
 # Instal php requirements
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        # Common
-        git curl \
-        libpcre3-dev \
-        # GD requirements
-        libjpeg62-turbo-dev libpng-dev libfreetype6-dev \
-        # curl requirements
-        libcurl3-dev \
-        # intl requirements
-        libicu-dev \
-        # dom requirements
-        libxml2-dev \
-        # bz2 requirements
-        libbz2-dev \
-        # phar requirements
-        libssl-dev \
-        # tidy requirements
-        libtidy-dev \
-        # xsl requirements
-        libxslt1-dev \
-        # zip requirements
-        libzip-dev \
-        zlib1g-dev \
-        # yaml requirements
-        libyaml-dev
+    git \
+    curl \
+    libpcre3-dev \
+    libjpeg62-turbo-dev \
+    libpng-dev \
+    libfreetype6-dev \
+    libcurl4-openssl-dev \
+    libicu-dev \
+    libxml2-dev \
+    libbz2-dev \
+    libssl-dev \
+    libtidy-dev \
+    libxslt1-dev \
+    libzip-dev \
+    zlib1g-dev \
+    libyaml-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN docker-php-ext-configure \
         gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
